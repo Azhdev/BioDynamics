@@ -7,6 +7,7 @@ import com.juicegrape.biodynamics.blocks.BlockInfo;
 import com.juicegrape.biodynamics.client.guis.GuiEnerTreeFurnace;
 import com.juicegrape.biodynamics.client.guis.GuiInfo;
 import com.juicegrape.biodynamics.tileentity.ContainerEnerTreeFurnace;
+import com.juicegrape.biodynamics.tileentity.TileEntityBatteTreeCore;
 import com.juicegrape.biodynamics.tileentity.TileEntityEnerTreeFurnace;
 
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -20,6 +21,7 @@ public class CommonProxy implements IGuiHandler {
 	
 	public void registerTileEntities() {
 		GameRegistry.registerTileEntity(TileEntityEnerTreeFurnace.class, BlockInfo.ENERTREEFURNACE);
+		GameRegistry.registerTileEntity(TileEntityBatteTreeCore.class, BlockInfo.BATTETREECORE);
 	}
 
 	@Override
@@ -34,12 +36,9 @@ public class CommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-		switch(ID) {
-		case GuiInfo.GUI_ENERTREEFURNACE_ID:
-			return new GuiEnerTreeFurnace(player.inventory ,(TileEntityEnerTreeFurnace)world.getTileEntity(x, y, z));
-		default:
-			return null;
-		}
+		return null;
 	}
+
+	
 
 }
